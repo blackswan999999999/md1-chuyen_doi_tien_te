@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <table>
+        <tr>
+            <td style="text-align: center">Amount</td>
+            <td></td>
+            <td></td>
+            <td style="text-align: left">From curency</td>
+            <td></td>
+            <td></td>
+            <td style="text-align: left"> To curency</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="s1"></td>
+            <td></td>
+            <td></td>
+            <td><select id="s2">
+                <option value="Viet"> Việt Nam</option>
+                <option value="USA">USD</option>
+            </select></td>
+            <td></td>
+            <td></td>
+            <td><select id="s3">
+                <option value="Viet"> Việt Nam</option>
+                <option value="USA">USD</option>
+            </select></td>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="Convert" id="s4" onclick="auto()"></td>
+        </tr>
+    </table>
+
+</form>
+<h3 id="s5" style="color: blue"></h3>
+</body>
+<script>
+
+    function auto() {
+        let a = document.getElementById('s1').value;
+        console.log(a)
+        let fcurency = document.getElementById('s2').value;
+        let tcurency = document.getElementById('s3').value;
+        let KQ;
+        let don_vi;
+        if (fcurency === 'Viet') {
+            if (tcurency === 'USA') {
+                KQ = a / 23000
+                don_vi = 'USD'
+            } else {
+                KQ = a
+                don_vi = 'VNĐ'
+            }
+        } else {
+            if (tcurency === 'USA') {
+                KQ = a
+                don_vi = 'USD'
+            } else {
+                KQ = a * 23000
+                don_vi = 'VNĐ'
+            }
+        }
+        document.getElementById('s5').innerHTML = 'Result :' + KQ + '  ' + don_vi
+    }
+
+
+</script>
+</html>
